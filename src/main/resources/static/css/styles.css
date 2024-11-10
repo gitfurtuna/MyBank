@@ -1,0 +1,44 @@
+
+        body {
+            display: flex;
+            justify-content: center; /* Центрирует по горизонтали */
+            align-items: center; /* Центрирует по вертикали */
+            height: 100vh; /* Задает высоту на 100% высоты видимой области */
+            margin: 0; /* Убирает отступы по умолчанию */
+            font-family: Arial, sans-serif; /* Шрифт для текста */
+        }
+        form {
+            border: 1px solid #ccc; /* Рамка вокруг формы */
+            padding: 20px; /* Отступы внутри формы */
+            border-radius: 5px; /* Закругленные углы */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Тень для формы */
+            background-color: #f9f9f9; /* Цвет фона формы */
+        }
+        h2 {
+            text-align: start; /* Центрирует заголовок */
+            margin-top: 0; /* Убирает верхний отступ */
+            margin-bottom: 15px; /* Добавляет нижний отступ */          
+        }
+        label {
+            display: block; /* Каждый label на новой строке */
+            margin: 10px 0 5px; /* Отступы для label */
+        }
+        input[type="text"], input[type="password"] {
+            width: 100%; /* Ширина поля ввода на 100% */
+            padding: 10px; /* Отступы внутри полей ввода */
+            margin-bottom: 10px; /* Отступ снизу */
+            border: 1px solid #ccc; /* Рамка для полей ввода */
+            border-radius: 4px; /* Закругленные углы */
+        }
+        input[type="submit"] {
+            background-color: #4CAF50; /* Цвет кнопки */
+            color: white; /* Цвет текста кнопки */
+            border: none; /* Убирает рамку */
+            padding: 10px; /* Отступы внутри кнопки */
+            border-radius: 4px; /* Закругленные углы */
+            cursor: pointer; /* Указатель курсора при наведении */
+            width: 100%; /* Ширина кнопки на 100% */
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049; /* Цвет кнопки при наведении */
+        }

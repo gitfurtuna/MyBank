@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Admin Page</title>
+</head>
+<body>
+<h1>Welcome to Admin Page</h1>
+
+<div th:if="${response != null}">
+
+    <div th:if="${response.users != null and !response.users.isEmpty()}">
+        <h3>All Users:</h3>
+        <ul>
+            <li th:each="user : ${response.users}">
+                <p>Name: <span th:text="${user.name}"></span></p>
+                <p>Surname: <span th:text="${user.surname}"></span></p>
+                <p>Date of birth: <span th:text="${user.dateOfBirth}"></span></p>
+                <p>Password: <span th:text="'PERMISSION DENIED'"></span></p>
+                <p>Email: <span th:text="${user.email}"></span></p>
+                <p>Phone number: <span th:text="${user.phoneNumber}"></span></p>
+                <p>Location: <span th:text="${user.location}"></span></p>
+                <p>Balance: <span th:text="'PERMISSION DENIED'"></span></p>
+                <p>Credit limit: <span th:text="'PERMISSION DENIED'"></span></p>
+                <p>Date of created: <span th:text="${user.dateOfCreated}"></span></p>
+                <p>Date of last enter: <span th:text="${user.dateOfLastEnter}"></span></p>
+
+            </li>
+        </ul>
+        <div style="text-align: left;">
+            <a href="/hello" style="padding: 10px 50px; background-color: #FB9F00; color: white; border: none; border-radius: 4px; cursor: pointer; text-decoration: none;">Log out</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+
+
