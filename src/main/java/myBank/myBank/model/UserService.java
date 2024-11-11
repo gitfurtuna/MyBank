@@ -77,5 +77,6 @@ public class UserService {
     public void getMoney(User user, int amount) {
         user.setAccountAmount(user.getAccountAmount() + amount);
         user.setCreditLimit(user.getCreditLimit() - amount);
+        userRepository.save(user);
     }
 }
