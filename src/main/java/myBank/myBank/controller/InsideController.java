@@ -48,8 +48,7 @@ public class InsideController {
         UserInfoResponse response = userService.showUserInfo(user);
         if (response.getUser().isPresent()) {
             User actualUser = response.getUser().get();
-            System.out.println(actualUser.getAccountAmount());
-            if (user.getCreditLimit() >= amount) {
+            if (actualUser.getCreditLimit() >= amount) {
                 userService.getMoney(actualUser, amount);
                 model.addAttribute("message", "Transfer successful! Amount transferred: " + amount);
             } else {
@@ -57,7 +56,6 @@ public class InsideController {
             }
             response = userService.showUserInfo(actualUser);
             actualUser = response.getUser().get();
-            System.out.println(actualUser.getAccountAmount());
             model.addAttribute("user", actualUser);
         }
         model.addAttribute("response", response);
