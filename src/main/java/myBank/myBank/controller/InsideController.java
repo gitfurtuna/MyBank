@@ -61,4 +61,58 @@ public class InsideController {
         model.addAttribute("response", response);
         return "client";
     }
+
+     @GetMapping("/change_phone")
+    public String changePhone(Model model, @SessionAttribute("user") User user, @RequestParam("phone") String phone) {
+        UserInfoResponse response = userService.showUserInfo(user);
+        User actualUser = response.getUser().get();
+        if (response.getUser().isPresent()) {
+            actualUser = response.getUser().get();
+            userService.changePhoneNumber(actualUser,phone);
+                model.addAttribute("message", "Change successful! Phone changed: " + phone);
+            }
+
+            response = userService.showUserInfo(actualUser);
+            actualUser = response.getUser().get();
+            model.addAttribute("user", actualUser);
+
+        model.addAttribute("response", response);
+        return "client";
+    }
+
+    @GetMapping("/change_email")
+    public String changeEmail(Model model, @SessionAttribute("user") User user, @RequestParam("email") String email) {
+        UserInfoResponse response = userService.showUserInfo(user);
+        User actualUser = response.getUser().get();
+        if (response.getUser().isPresent()) {
+            actualUser = response.getUser().get();
+            userService.changeEmail(actualUser,email);
+            model.addAttribute("message", "Change successful! Email changed: " + email);
+        }
+
+        response = userService.showUserInfo(actualUser);
+        actualUser = response.getUser().get();
+        model.addAttribute("user", actualUser);
+
+        model.addAttribute("response", response);
+        return "client";
+    }
+
+    @GetMapping("/change_password")
+    public String changePassword(Model model, @SessionAttribute("user") User user, @RequestParam("password") String password) {
+        UserInfoResponse response = userService.showUserInfo(user);
+        User actualUser = response.getUser().get();
+        if (response.getUser().isPresent()) {
+            actualUser = response.getUser().get();
+            userService.changePassword(actualUser,password);
+            model.addAttribute("message", "Change successful! Password changed: " + password);
+        }
+
+        response = userService.showUserInfo(actualUser);
+        actualUser = response.getUser().get();
+        model.addAttribute("user", actualUser);
+
+        model.addAttribute("response", response);
+        return "client";
+    }
 }
