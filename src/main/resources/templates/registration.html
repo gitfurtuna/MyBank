@@ -38,8 +38,13 @@
                 </td>
                 <td>
                     <input type="date" id="dateOfBirth" th:field="*{dateOfBirth}" required style="width: 142px;"/>
-
-                </td>
+               </td>
+                <script>
+                document.addEventListener('DOMContentLoaded', (event) => {
+                const today = new Date().toISOString().split('T')[0];
+                document.getElementById('dateOfBirth').setAttribute('max', today);
+                 });
+                </script>
             </tr>
             <tr>
                 <td>
