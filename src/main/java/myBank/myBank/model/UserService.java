@@ -79,4 +79,19 @@ public class UserService {
         user.setCreditLimit(user.getCreditLimit() - amount);
         userRepository.save(user);
     }
+
+        public void changePassword(User user, String newPassword) {
+        user.setPassword(passwordEncoder.encode(newPassword));
+        userRepository.save(user);
+    }
+
+    public void changeEmail(User user, String newEmail) {
+        user.setEmail(newEmail);
+        userRepository.save(user);
+    }
+
+    public void changePhoneNumber(User user, String newPhoneNumber) {
+        user.setPhoneNumber(newPhoneNumber);
+        userRepository.save(user);
+    }
 }
