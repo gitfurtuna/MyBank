@@ -21,16 +21,22 @@ public class RegistrationController {
         return "registration";
     }
 
-    @PostMapping("/register")
+
+        @PostMapping("/register")
     public String register(@ModelAttribute User user, Model model) {
         try {
             userService.registerUser(user);
-            return "redirect:/hello";
+            return "redirect:/show_smile";
         } catch (IllegalArgumentException e) {
             model.addAttribute("error", e.getMessage());
             return "registration";
 
         }
+    }
+
+    @GetMapping("/show_smile")
+    public String showSmile() {
+        return "smile";
     }
 
 }
